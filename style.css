@@ -1,0 +1,462 @@
+/* ============================================
+   SECTION 0: RESET & BASE STYLES
+   We always do this first to remove browser
+   default spacing that would break our design
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* box-sizing: border-box means: padding and border are
+       INCLUDED in the element's width. Without this, adding
+       padding would make elements wider than expected. */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    /* sans-serif means no little feet on letters — cleaner look */
+    background-color: #121212;
+    /* #121212 is a very dark grey, almost black */
+    color: white;
+    /* Default text color for the whole page */
+}
+
+/* Remove underline and bullet styles we don't want */
+a {
+    text-decoration: none; /* Removes the underline from ALL links */
+    color: inherit;        /* Links take the color of their parent element */
+}
+
+ul {
+    list-style: none; /* Removes bullet points from ALL lists */
+}
+
+
+/* ============================================
+   SECTION 1: NAVBAR
+   ============================================ */
+
+.navbar {
+    display: flex;
+    /* Flexbox arranges children (logo, nav-links, cart) in a ROW */
+
+    justify-content: space-between;
+    /* Pushes logo to far left, cart to far right, links in middle */
+
+    align-items: center;
+    /* Vertically centers all 3 items in the navbar */
+
+    background-color: #1a1a1a;
+    /* Slightly lighter than #121212 so navbar stands out */
+
+    padding: 18px 50px;
+    /* padding: TOP/BOTTOM  LEFT/RIGHT */
+    /* 18px top and bottom, 50px left and right */
+
+    position: sticky;
+    /* Navbar stays at the top of the screen when you scroll */
+    top: 0;
+    /* Required with sticky — tells it to stick at 0px from top */
+
+    z-index: 1000;
+    /* z-index controls what appears ON TOP of what.
+       Higher number = appears in front.
+       1000 ensures navbar is always in front of other content */
+}
+
+.logo {
+    color: #1e90ff;
+    /* Dodger blue — matches the website's accent color */
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    /* Makes the list items sit SIDE BY SIDE instead of stacking */
+    gap: 45px;
+    /* gap adds space BETWEEN flex items — much cleaner than margin */
+}
+
+.nav-links a {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #1e90ff;
+    /* When you hover over a link, it turns blue */
+}
+
+.cart-icon {
+    position: relative;
+    /* "relative" means: I can position children relative to ME */
+    font-size: 22px;
+    cursor: pointer;
+    /* cursor: pointer shows the hand cursor on hover */
+}
+
+.cart-count {
+    background-color: red;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 50%;
+    /* 50% border-radius on a square element makes it a CIRCLE */
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* These 3 lines center the "0" number inside the red circle */
+    position: absolute;
+    /* "absolute" positions this relative to its parent (.cart-icon) */
+    top: -8px;
+    right: -10px;
+    /* Moves the red dot to the top-right corner of the cart icon */
+}
+
+
+/* ============================================
+   SECTION 2: HERO SECTION
+   ============================================ */
+
+.hero {
+    background: linear-gradient(135deg, #1565c0, #1e90ff);
+    /* linear-gradient creates a smooth color transition
+       135deg = diagonal direction (top-left to bottom-right)
+       Starts with dark blue #1565c0, fades into bright blue #1e90ff */
+
+    min-height: 500px;
+    /* min-height means: be AT LEAST 500px tall, but grow if needed */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* These 3 lines center the hero content BOTH vertically & horizontally */
+
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero-content h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    /* margin-bottom pushes content BELOW this element away */
+    color: white;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: white;
+    margin-bottom: 35px;
+}
+
+.shop-btn {
+    display: inline-block;
+    /* inline-block lets us set padding on an <a> tag */
+    padding: 13px 35px;
+    /* padding: TOP/BOTTOM LEFT/RIGHT */
+    border: 2px solid white;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.15);
+    /* rgba = Red, Green, Blue, Alpha(opacity) */
+    /* 0.15 opacity = mostly transparent, slight white tint */
+}
+
+.shop-btn:hover {
+    background-color: white;
+    color: #1e90ff;
+    /* On hover: white background, blue text */
+}
+
+
+/* ============================================
+   SECTION 3: FEATURED PRODUCTS
+   ============================================ */
+
+.products-section {
+    background-color: #121212;
+    padding: 70px 50px;
+    text-align: center;
+}
+
+/* This class is shared between multiple sections for the title */
+.section-title {
+    color: #1e90ff;
+    font-size: 32px;
+    margin-bottom: 50px;
+    /* Pushes the grid/cards down from the title */
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* repeat(3, 1fr) = 3 columns, each taking equal space */
+    /* 1fr means "1 fraction" of available space */
+
+    gap: 25px;
+    /* gap creates space between ALL grid cells, horizontally and vertically */
+}
+
+.product-card {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    /* A subtle dark border around each card */
+    border-radius: 8px;
+    overflow: hidden;
+    /* overflow: hidden clips the image to the card's rounded corners */
+    text-align: left;
+}
+
+.product-image {
+    width: 100%;
+    height: 180px;
+    background-color: #2d2d2d;
+    /* Since we have no real image, this dark grey box acts as placeholder */
+}
+
+.product-info {
+    padding: 20px;
+    /* Adds breathing room inside the card, around the text */
+}
+
+.product-info h3 {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.product-info p {
+    font-size: 14px;
+    color: #aaaaaa;
+    /* #aaa is a medium grey — used for secondary/less important text */
+    margin-bottom: 12px;
+    line-height: 1.5;
+    /* line-height controls spacing between lines of text */
+    /* 1.5 means each line is 1.5x the font size in height */
+}
+
+.stars {
+    color: gold;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.stars span {
+    color: #aaaaaa;
+    font-size: 13px;
+    /* The review count "(245 reviews)" is grey, not gold */
+}
+
+.price {
+    color: #1e90ff;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 15px 0;
+    /* margin: TOP RIGHT BOTTOM LEFT */
+    /* margin: 15px 0 means: 15px top and bottom, 0 left and right */
+}
+
+.add-to-cart-btn {
+    width: 100%;
+    /* Makes the button stretch the full width of the card */
+    padding: 13px;
+    background-color: #28a745;
+    /* Bootstrap green — the classic "success/go" color */
+    color: white;
+    border: none;
+    /* Removes the default button border */
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #218838;
+    /* Slightly darker green on hover */
+}
+
+
+/* ============================================
+   SECTION 4: WHY CHOOSE TECHHUB
+   ============================================ */
+
+.why-section {
+    background-color: #f0f0f0;
+    /* Light grey background — this section breaks the dark pattern */
+    padding: 70px 50px;
+    text-align: center;
+}
+
+/* Override the section title color for the light background section */
+.section-title.dark {
+    color: #1e90ff;
+    /* Still blue even on light background */
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 equal columns for the 4 feature cards */
+    gap: 20px;
+}
+
+.feature-card {
+    background-color: #2a2a2a;
+    /* Dark card on the light section background */
+    color: white;
+    padding: 40px 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.feature-card h3 {
+    color: #1e90ff;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    color: #cccccc;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* ============================================
+   SECTION 5: CONTACT FORM
+   ============================================ */
+
+.contact-section {
+    background-color: #0d0d0d;
+    /* Even darker than the main background */
+    padding: 70px 50px;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 680px;
+    /* max-width: form won't get wider than 680px even on large screens */
+    margin: 0 auto;
+    /* margin: 0 auto centers a block element horizontally */
+    text-align: left;
+}
+
+.contact-form label {
+    display: block;
+    /* display: block makes the label sit on its OWN line */
+    color: #aaaaaa;
+    font-size: 14px;
+    margin-top: 25px;
+    margin-bottom: 8px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    /* Comma between selectors means: "apply these styles to BOTH" */
+    width: 100%;
+    padding: 15px;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    /* Must set font-family again — textarea doesn't inherit it by default */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    /* Removes the default browser blue outline when you click a field */
+    border-color: #1e90ff;
+    /* Instead, shows a blue border when the field is active */
+}
+
+.contact-form textarea {
+    height: 160px;
+    resize: vertical;
+    /* resize: vertical lets users drag the textarea taller but NOT wider */
+}
+
+/* We need the placeholder text to be grey, not white */
+::placeholder {
+    color: #666666;
+}
+
+.send-btn {
+    width: 100%;
+    margin-top: 30px;
+    padding: 16px;
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.send-btn:hover {
+    background-color: #1570cd;
+    /* Slightly darker blue on hover */
+}
+
+
+/* ============================================
+   SECTION 6: FOOTER
+   ============================================ */
+
+.footer {
+    background-color: #1a1a1a;
+    padding: 60px 50px 0px 50px;
+    /* padding: TOP RIGHT BOTTOM LEFT */
+    /* 0 bottom because footer-bottom has its own padding */
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 equal columns for the 4 footer sections */
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.footer-col h4 {
+    color: #1e90ff;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.footer-col ul li {
+    margin-bottom: 14px;
+    /* Spacing between each footer link */
+}
+
+.footer-col ul li a {
+    color: #888888;
+    font-size: 14px;
+}
+
+.footer-col ul li a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid #333333;
+    /* A subtle line separating the grid from the copyright */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #666666;
+    font-size: 14px;
+}

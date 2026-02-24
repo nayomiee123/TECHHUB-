@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!-- This tells the browser: "This is an HTML5 document" -->
+
+<html lang="en">
+<!-- Everything in your website lives inside <html> -->
+
+<head>
+    <!-- The <head> section is NOT visible on the page -->
+    <!-- It contains information ABOUT the page -->
+
+    <meta charset="UTF-8">
+    <!-- This allows special characters like © to show correctly -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- This makes the website look good on mobile phones -->
+
+    <title>TechHub Store</title>
+    <!-- This is the text that appears on the browser tab -->
+
+    <link rel="stylesheet" href="style.css">
+    <!-- This CONNECTS your CSS file to this HTML file -->
+    <!-- "rel" means relationship - it's a stylesheet -->
+    <!-- "href" means the file path - style.css is in the same folder -->
+</head>
+
+<body>
+    <!-- Everything VISIBLE on the page goes inside <body> -->
+
+
+    <!-- ================================================ -->
+    <!--                  SECTION 1: NAVBAR               -->
+    <!-- ================================================ -->
+    <nav class="navbar">
+        <!-- <nav> is a semantic HTML tag meaning "navigation" -->
+        <!-- We give it class="navbar" so CSS can style it -->
+
+        <!-- LEFT SIDE: Logo -->
+        <div class="logo">TechHub Store</div>
+
+        <!-- MIDDLE: Navigation Links -->
+        <!-- <ul> means Unordered List (bullet list) -->
+        <!-- We use it for nav links because links ARE a list -->
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <!-- <li> means List Item -->
+            <!-- <a> means Anchor (clickable link) -->
+            <!-- href="#products" means: go to the element with id="products" -->
+        </ul>
+
+        <!-- RIGHT SIDE: Cart Icon -->
+        <div class="cart-icon">
+            🛒 <span class="cart-count">0</span>
+            <!-- <span> is like a div but for INLINE content (inside text) -->
+        </div>
+    </nav>
+
+
+    <!-- ================================================ -->
+    <!--                  SECTION 2: HERO                 -->
+    <!-- ================================================ -->
+    <section class="hero" id="home">
+        <!-- <section> is a semantic tag meaning "a section of the page" -->
+        <!-- id="home" allows the navbar link href="#home" to scroll here -->
+
+        <div class="hero-content">
+            <!-- We wrap the text in a div so we can center it easily -->
+            <h1>Welcome to TechHub</h1>
+            <p>Discover amazing tech products at unbeatable prices</p>
+            <a href="#products" class="shop-btn">Shop Now</a>
+            <!-- We use <a> instead of <button> so clicking scrolls to products -->
+        </div>
+    </section>
+
+
+    <!-- ================================================ -->
+    <!--            SECTION 3: FEATURED PRODUCTS          -->
+    <!-- ================================================ -->
+    <section class="products-section" id="products">
+
+        <h2 class="section-title">Featured Products</h2>
+
+        <!-- This div will hold all the product cards in a grid -->
+        <div class="products-grid">
+
+            <!-- PRODUCT CARD 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <!-- No real image, just a placeholder div styled with CSS -->
+                </div>
+                <div class="product-info">
+                    <h3>Laptop Pro X1</h3>
+                    <p>High-performance laptop with Intel i7, 16GB RAM, 512GB SSD</p>
+                    <div class="stars">★★★★★ <span>(245 reviews)</span></div>
+                    <div class="price">$1,299.99</div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- PRODUCT CARD 2 -->
+            <div class="product-card">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <h3>SmartPhone 5G Ultra</h3>
+                    <p>Latest 5G smartphone with 6.8" AMOLED display, 256GB storage</p>
+                    <div class="stars">★★★★☆ <span>(512 reviews)</span></div>
+                    <div class="price">$899.99</div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- PRODUCT CARD 3 -->
+            <div class="product-card">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <h3>Wireless Earbuds Pro</h3>
+                    <p>Premium earbuds with active noise cancellation, 30-hour battery</p>
+                    <div class="stars">★★★★★ <span>(789 reviews)</span></div>
+                    <div class="price">$299.99</div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- PRODUCT CARD 4 -->
+            <div class="product-card">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <h3>4K Digital Camera Pro</h3>
+                    <p>Professional 4K camera, 60fps recording, advanced stabilization</p>
+                    <div class="stars">★★★★★ <span>(156 reviews)</span></div>
+                    <div class="price">$1,799.99</div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- PRODUCT CARD 5 -->
+            <div class="product-card">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <h3>Universal Wireless Charger</h3>
+                    <p>Compatible with all major devices, 15W fast charging</p>
+                    <div class="stars">★★★★☆ <span>(421 reviews)</span></div>
+                    <div class="price">$49.99</div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- PRODUCT CARD 6 -->
+            <div class="product-card">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <h3>USB-C Hub 7-Port</h3>
+                    <p>7-port hub, HDMI output, SD card reader, USB 3.0 ports</p>
+                    <div class="stars">★★★★★ <span>(334 reviews)</span></div>
+                    <div class="price">$79.99</div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+        </div>
+        <!-- END products-grid -->
+    </section>
+
+
+    <!-- ================================================ -->
+    <!--           SECTION 4: WHY CHOOSE TECHHUB          -->
+    <!-- ================================================ -->
+    <section class="why-section" id="about">
+
+        <h2 class="section-title dark">Why Choose TechHub?</h2>
+
+        <div class="features-grid">
+
+            <div class="feature-card">
+                <h3>Fast Shipping</h3>
+                <p>Get your products within 2-3 business days</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Secure Payment</h3>
+                <p>100% encrypted and secure transactions</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>30-Day Return Policy</h3>
+                <p>Easy returns and full refunds within 30 days</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Expert Support</h3>
+                <p>24/7 customer support ready to assist you</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ================================================ -->
+    <!--             SECTION 5: CONTACT FORM              -->
+    <!-- ================================================ -->
+    <section class="contact-section" id="contact">
+
+        <h2 class="section-title">Get in Touch</h2>
+
+        <form class="contact-form">
+            <!-- <form> is an HTML element for collecting user input -->
+
+            <!-- Each field has a label + input pair -->
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+            <!-- "for" on label must match "id" on input — this links them -->
+            <!-- placeholder is the grey hint text inside the box -->
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email">
+
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Enter your message"></textarea>
+            <!-- <textarea> is a multi-line text box -->
+
+            <button type="submit" class="send-btn">Send Message</button>
+        </form>
+
+    </section>
+
+
+    <!-- ================================================ -->
+    <!--                  SECTION 6: FOOTER               -->
+    <!-- ================================================ -->
+    <footer class="footer">
+
+        <div class="footer-grid">
+
+            <div class="footer-col">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="#">Our Company</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Connect With Us</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- END footer-grid -->
+
+        <div class="footer-bottom">
+            <p>© 2026 TechHub Store. All rights reserved.</p>
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
